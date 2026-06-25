@@ -1,6 +1,6 @@
 # Task Board
 
-A simple task board app built with plain HTML, CSS, and JavaScript. It runs entirely in the browser — no backend, no build tools, no installation needed.
+A simple task board app built with plain HTML, CSS, and JavaScript. It runs entirely in the browser, no backend, no build tools, no installation needed.
 
 ## How to run
 
