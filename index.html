@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Board</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- The main container keeps everything centered and tidy -->
+  <div class="app">
+
+    <!-- Page header -->
+    <header>
+      <h1>Task Board</h1>
+      <p class="subtitle">Keep track of things you need to do</p>
+    </header>
+
+    <!-- Add a new task: a text input and an Add button -->
+    <div class="add-task">
+      <input
+        type="text"
+        id="task-input"
+        placeholder="What do you need to do?"
+        maxlength="200"
+        aria-label="Task title"
+      >
+      <button id="add-btn">Add</button>
+    </div>
+
+    <!-- Error message shows when the user tries to add an empty task -->
+    <p id="error-msg" class="error-msg" role="alert"></p>
+
+    <!-- Filter buttons: All / Open / Done -->
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="open">Open</button>
+      <button class="filter-btn" data-filter="done">Done</button>
+    </div>
+
+    <!-- The task list. JavaScript will fill this in. -->
+    <ul id="task-list" class="task-list"></ul>
+
+    <!-- Empty state: shows when there are no tasks -->
+    <div id="empty-state" class="empty-state">
+      <p>No tasks yet. Add one above to get started!</p>
+    </div>
+
+    <!-- Counter: how many tasks are still open -->
+    <footer>
+      <span id="counter">0 open tasks</span>
+    </footer>
+
+  </div>
+
+  <!-- Link to our JavaScript file -->
+  <script src="app.js"></script>
+</body>
+</html>

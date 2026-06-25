@@ -1,0 +1,241 @@
+/* ===========================================================
+   Task Board - Styles
+   This file controls how the app looks. It is organized in
+   sections so it is easy to find things.
+   =========================================================== */
+
+/* --- Reset: remove default browser margins and padding --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* --- Body: background and font for the whole page --- */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #222;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 40px 16px;
+}
+
+/* --- Main container: a white card that holds the app --- */
+.app {
+  width: 100%;
+  max-width: 540px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* --- Header --- */
+header h1 {
+  font-size: 28px;
+  color: #1a1a2e;
+}
+
+.subtitle {
+  color: #888;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+/* --- Add task area (input + button) --- */
+.add-task {
+  display: flex;
+  gap: 8px;
+}
+
+#task-input {
+  flex: 1;
+  padding: 10px 14px;
+  font-size: 15px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+#task-input:focus {
+  border-color: #4a6cf7;
+}
+
+#add-btn {
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #4a6cf7;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+
+#add-btn:hover {
+  background-color: #3b5de7;
+}
+
+#add-btn:active {
+  background-color: #3450c9;
+}
+
+/* --- Error message (shows when input is empty) --- */
+.error-msg {
+  color: #e74c3c;
+  font-size: 13px;
+  min-height: 18px;
+}
+
+/* --- Filter buttons --- */
+.filters {
+  display: flex;
+  gap: 8px;
+}
+
+.filter-btn {
+  padding: 6px 16px;
+  font-size: 14px;
+  border: 2px solid #ddd;
+  border-radius: 20px;
+  background: #fff;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover {
+  border-color: #4a6cf7;
+  color: #4a6cf7;
+}
+
+/* .active is added by JavaScript to the currently selected filter */
+.filter-btn.active {
+  background-color: #4a6cf7;
+  border-color: #4a6cf7;
+  color: #fff;
+}
+
+/* --- Task list --- */
+.task-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* --- A single task row --- */
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+/* The checkbox (custom styled) */
+.task-item input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #4a6cf7;
+  flex-shrink: 0;
+}
+
+/* The task title text */
+.task-title {
+  flex: 1;
+  font-size: 15px;
+  word-break: break-word;
+}
+
+/* When a task is done, the title gets a line through it and turns gray */
+.task-item.done .task-title {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+/* The delete button */
+.delete-btn {
+  padding: 4px 10px;
+  font-size: 13px;
+  color: #e74c3c;
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.delete-btn:hover {
+  background-color: #fdf0ef;
+  border-color: #e74c3c;
+}
+
+/* --- Empty state (when there are no tasks) --- */
+.empty-state {
+  text-align: center;
+  padding: 32px 16px;
+  color: #aaa;
+  font-size: 15px;
+}
+
+/* --- Footer with the counter --- */
+footer {
+  border-top: 1px solid #eee;
+  padding-top: 16px;
+  text-align: center;
+}
+
+#counter {
+  font-size: 14px;
+  color: #888;
+}
+
+/* ===========================================================
+   Responsive: make the app look good on a phone screen
+   =========================================================== */
+@media (max-width: 480px) {
+  body {
+    padding: 16px 12px;
+  }
+
+  .app {
+    padding: 20px 16px;
+    border-radius: 8px;
+  }
+
+  header h1 {
+    font-size: 22px;
+  }
+
+  /* On small screens the Add button goes full width below the input */
+  .add-task {
+    flex-direction: column;
+  }
+
+  #add-btn {
+    width: 100%;
+  }
+
+  /* Filter buttons take equal space */
+  .filters {
+    justify-content: space-between;
+  }
+
+  .filter-btn {
+    flex: 1;
+    text-align: center;
+  }
+}
